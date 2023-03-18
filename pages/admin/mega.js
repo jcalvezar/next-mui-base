@@ -16,6 +16,10 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
+import MenuPhone from "../../components/admin/MenuPhone";
+import MenuAutos from "../../components/admin/MenuAutos";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MyTree from "../../components/admin/MyTree";
 import MyTree2 from "../../components/admin/MyTree/MyTree2";
@@ -35,17 +39,6 @@ function Copyright() {
   );
 }
 
-const nodos = [
-  { id: 1, id_padre: 0, nombre: "Admin" },
-  { id: 2, id_padre: 1, nombre: "Zurich" },
-  { id: 3, id_padre: 2, nombre: "MKT" },
-  { id: 4, id_padre: 2, nombre: "Finanzas" },
-  { id: 5, id_padre: 1, nombre: "BBVA" },
-  { id: 6, id_padre: 5, nombre: "Phones" },
-  { id: 7, id_padre: 5, nombre: "Autos" },
-  { id: 8, id_padre: 5, nombre: "Vida" },
-];
-
 const theme = createTheme();
 
 export default function Album() {
@@ -60,9 +53,11 @@ export default function Album() {
       <AppBar position="relative">
         <Toolbar>
           <PeopleIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap>
+          <Typography variant="h6" color="inherit" noWrap mr={10}>
             Zurich Mega Admin
           </Typography>
+          <MenuPhone />
+          <MenuAutos />
         </Toolbar>
       </AppBar>
       <main>

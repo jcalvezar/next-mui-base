@@ -5,8 +5,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
-
-import { Grid, Typography, TextField } from "@mui/material";
+import MenuItem from "@mui/material/MenuItem";
+import { Grid, Stack, TextField } from "@mui/material";
 
 export default function useMotivoDialog() {
   const [open, setOpen] = useState(false);
@@ -24,14 +24,14 @@ export default function useMotivoDialog() {
   };
 
   const Dialogo = () => {
-    const [datosDialog, setDatosDialog] = useState({ motivo: "", email: "" });
+    const [datosDialog, setDatosDialog] = useState({ nombre: "", tipo: "" });
 
     const handleChange = (campo, e) => {
       setDatosDialog({ ...datosDialog, [campo]: e });
     };
 
     const handleAccept = () => {
-      accept(datosDialog.motivo);
+      accept(datosDialog.nombre, datosDialog.tipo);
       setOpen(false);
     };
 
@@ -43,18 +43,36 @@ export default function useMotivoDialog() {
       >
         <DialogTitle id="simple-dialog-title">Nombre del Nodo</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Ingrese el Nombre que tendrá el Nodo
-          </DialogContentText>
-          <TextField
-            placeholder="Nombre"
-            size="small"
-            margin="none"
-            variant="outlined"
-            value={datosDialog.motivo}
-            onChange={(e) => handleChange("motivo", e.target.value)}
-            fullWidth
-          />
+          <Stack spacing={2} pt={1}>
+            <TextField
+              id="outlined-helperText"
+              label="Nombre del Nodo"
+              defaultValue=""
+              helperText="Debe darle un Nombre al Nodo"
+              placeholder="Nombre"
+              margin="none"
+              variant="outlined"
+              value={datosDialog.nombre}
+              onChange={(e) => handleChange("nombre", e.target.value)}
+              fullWidth
+            />
+
+            <TextField
+              id="outlined-select"
+              select
+              label="Tipo de Nodo"
+              defaultValue="carpeta"
+              helperText="Seleccione el Tipo de Nodo"
+              value={datosDialog.tipo}
+              onChange={(e) => handleChange("tipo", e.target.value)}
+            >
+              {["carpeta", "entidad"].map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          </Stack>
         </DialogContent>
         <DialogActions>
           <Button variant="contained" color="secondary" onClick={handleAccept}>

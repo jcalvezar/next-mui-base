@@ -61,6 +61,8 @@ export default function FullWidthTabs(props) {
     (nodo) => nodo.id == datosArbol.actual
   );
 
+  //console.log("NODO ACTUAL", nodoActual);
+
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -73,7 +75,7 @@ export default function FullWidthTabs(props) {
     abrirDialogoNombre(handleAdd2);
   };
 
-  const handleAdd2 = (nombre) => {
+  const handleAdd2 = (nombre, tipo) => {
     const nodos = datosArbol.nodos;
     const ids = nodos.map((nodo) => nodo.id);
     const maxId = Math.max(...ids) + 1;
@@ -81,8 +83,10 @@ export default function FullWidthTabs(props) {
     if (nodoActual) {
       nodos.push({
         id: maxId,
-        id_padre: nodoActual.id,
-        nombre,
+        parent: nodoActual.id,
+        droppable: tipo === "carpeta",
+        text: nombre,
+        data: { nodeType: tipo },
       });
       setDatosArbol({ ...datosArbol, nodos });
     }
@@ -140,7 +144,11 @@ export default function FullWidthTabs(props) {
             <Typography variant="h6" sx={{ flex: 1 }}>
               ID Nodo {datosArbol.actual}
             </Typography>
-            <Button variant="contained" onClick={handleAdd}>
+            <Button
+              variant="contained"
+              onClick={handleAdd}
+              disabled={!nodoActual?.droppable}
+            >
               Agregar un Hijo
             </Button>
             {/* <Button variant="contained" onClick={handleMove}>
@@ -155,7 +163,7 @@ export default function FullWidthTabs(props) {
               Nombre: {nodoActual?.text}
             </Typography>
             <Typography variant="b1" sx={{ flex: 1 }}>
-              Tipo: Genérico
+              Tipo: {nodoActual?.data.nodeType}
             </Typography>
           </Stack>
         </TabPanel>

@@ -3,15 +3,17 @@
     "id": 1,
     "parent": 0,
     "droppable": true,
-    "text": "Zurich"
+    "text": "Zurich",
+    "data": {
+      "nodeType": "carpeta"
+    }
   },
   {
     "id": 2,
     "parent": 1,
     "text": "Finanzas",
     "data": {
-      "fileType": "text",
-      "fileSize": "4.8MB"
+      "nodeType": "entidad"
     }
   },
   {
@@ -19,23 +21,24 @@
     "parent": 1,
     "text": "Marketing",
     "data": {
-      "fileType": "text",
-      "fileSize": "4.8MB"
+      "nodeType": "entidad"
     }
   },
   {
     "id": 4,
     "parent": 0,
     "droppable": true,
-    "text": "BBVA"
+    "text": "BBVA",
+    "data": {
+      "nodeType": "carpeta"
+    }
   },
   {
     "id": 5,
     "parent": 4,
     "text": "Phone",
     "data": {
-      "fileType": "image",
-      "fileSize": "2.1MB"
+      "nodeType": "entidad"
     }
   },
   {
@@ -43,15 +46,17 @@
     "parent": 4,
     "text": "Autos",
     "data": {
-      "fileType": "image",
-      "fileSize": "0.8MB"
+      "nodeType": "entidad"
     }
   },
   {
     "id": 7,
     "parent": 0,
     "droppable": true,
-    "text": "Brokers"
+    "text": "Brokers",
+    "data": {
+      "nodeType": "carpeta"
+    }
   },
 
   {
@@ -59,8 +64,7 @@
     "parent": 7,
     "text": "Joe's Seguros",
     "data": {
-      "fileType": "image",
-      "fileSize": "2.1MB"
+      "nodeType": "entidad"
     }
   },
   {
@@ -68,8 +72,7 @@
     "parent": 7,
     "text": "Seguros El Enyesado",
     "data": {
-      "fileType": "image",
-      "fileSize": "0.8MB"
+      "nodeType": "entidad"
     }
   }
 ]
