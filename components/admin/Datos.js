@@ -7,9 +7,13 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-
 import Button from "@mui/material/Button";
+import Grid from "@mui/material/Grid";
+import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import FormGroup from "@mui/material/FormGroup";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
 import { display } from "@mui/system";
 import useNodeNameDialog from "./NodeNameDialog";
 import useNodeNodoDialog from "./NodeNodoDialog";
@@ -168,7 +172,47 @@ export default function FullWidthTabs(props) {
           </Stack>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
-          Secciones
+          <Typography variant="h6" sx={{ p: "10px" }}>
+            Secciones
+          </Typography>
+          <Grid container spacing={2} pl={2} sx={{ width: "100%" }}>
+            <Grid item xs={6}>
+              <Paper sx={{ padding: "10px" }}>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Phone"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Dashboard"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Pólizas"
+                  />
+                </FormGroup>
+              </Paper>
+            </Grid>
+            <Grid item xs={6}>
+              <Paper sx={{ padding: "10px" }}>
+                <FormGroup>
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Autos"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Dashboard"
+                  />
+                  <FormControlLabel
+                    control={<Checkbox defaultChecked />}
+                    label="Pólizas"
+                  />
+                </FormGroup>
+              </Paper>
+            </Grid>
+          </Grid>
         </TabPanel>
         <TabPanel value={value} index={2} dir={theme.direction}>
           Roles

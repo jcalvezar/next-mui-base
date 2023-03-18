@@ -18,11 +18,13 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import MenuPhone from "../../components/admin/MenuPhone";
 import MenuAutos from "../../components/admin/MenuAutos";
+import MenuUser from "../../components/admin/MenuUser";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MyTree from "../../components/admin/MyTree";
 import MyTree2 from "../../components/admin/MyTree/MyTree2";
+
 import Datos from "../../components/admin/Datos";
 import SampleData from "../../components/admin/MyTree/sample_data.json";
 
@@ -58,14 +60,15 @@ export default function Album() {
           </Typography>
           <MenuPhone />
           <MenuAutos />
+          <MenuUser />
         </Toolbar>
       </AppBar>
       <main>
         {/* Hero unit */}
         <Box
           sx={{
-            bgcolor: "background.paper",
-            pt: 8,
+            bgcolor: "#eee",
+            pt: 2,
             pb: 6,
           }}
         >
