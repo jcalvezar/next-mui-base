@@ -117,7 +117,7 @@ export default function CustomizedTreeView(props) {
       defaultCollapseIcon={<MinusSquare />}
       defaultExpandIcon={<PlusSquare />}
       defaultEndIcon={<CloseSquare />}
-      sx={{ height: 264, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
+      sx={{ height: 500, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
     >
       {MostarNodo(1, datosArbol.nodos, setActual)}
     </TreeView>

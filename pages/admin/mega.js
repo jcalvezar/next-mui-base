@@ -18,7 +18,9 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MyTree from "../../components/admin/MyTree";
+import MyTree2 from "../../components/admin/MyTree/MyTree2";
 import Datos from "../../components/admin/Datos";
+import SampleData from "../../components/admin/MyTree/sample_data.json";
 
 function Copyright() {
   return (
@@ -47,7 +49,10 @@ const nodos = [
 const theme = createTheme();
 
 export default function Album() {
-  const [datosArbol, setDatosArbol] = useState({ actual: false, nodos });
+  const [datosArbol, setDatosArbol] = useState({
+    actual: null,
+    nodos: [...SampleData],
+  });
 
   return (
     <ThemeProvider theme={theme}>
@@ -56,7 +61,7 @@ export default function Album() {
         <Toolbar>
           <PeopleIcon sx={{ mr: 2 }} />
           <Typography variant="h6" color="inherit" noWrap>
-            Zurich Megasor
+            Zurich Mega Admin
           </Typography>
         </Toolbar>
       </AppBar>
@@ -77,21 +82,15 @@ export default function Album() {
               //justifyContent="center"
             >
               <Paper elevation={2} sx={{ flex: 2 }}>
-                <MyTree datosArbol={datosArbol} setDatosArbol={setDatosArbol} />
+                {/* <MyTree datosArbol={datosArbol} setDatosArbol={setDatosArbol} /> */}
+                <MyTree2
+                  datosArbol={datosArbol}
+                  setDatosArbol={setDatosArbol}
+                />
               </Paper>
               <Paper elevation={2} sx={{ flex: 4 }}>
                 <Datos datosArbol={datosArbol} setDatosArbol={setDatosArbol} />
               </Paper>
-            </Stack>
-
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-            >
-              <Button variant="contained">Main call to action</Button>
-              <Button variant="outlined">Secondary action</Button>
             </Stack>
           </Container>
         </Box>

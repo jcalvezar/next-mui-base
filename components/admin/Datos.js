@@ -11,6 +11,8 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Stack from "@mui/material/Stack";
 import { display } from "@mui/system";
+import useNodeNameDialog from "./NodeNameDialog";
+import useNodeNodoDialog from "./NodeNodoDialog";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,6 +54,9 @@ export default function FullWidthTabs(props) {
   const [value, setValue] = React.useState(0);
   const { datosArbol, setDatosArbol } = props;
 
+  const [abrirDialogoNombre, DialogoNombre] = useNodeNameDialog();
+  const [abrirDialogoNodo, DialogoNodo] = useNodeNodoDialog();
+
   const nodoActual = datosArbol.nodos.find(
     (nodo) => nodo.id == datosArbol.actual
   );
@@ -62,6 +67,44 @@ export default function FullWidthTabs(props) {
 
   const handleChangeIndex = (index) => {
     setValue(index);
+  };
+
+  const handleAdd = () => {
+    abrirDialogoNombre(handleAdd2);
+  };
+
+  const handleAdd2 = (nombre) => {
+    const nodos = datosArbol.nodos;
+    const ids = nodos.map((nodo) => nodo.id);
+    const maxId = Math.max(...ids) + 1;
+
+    if (nodoActual) {
+      nodos.push({
+        id: maxId,
+        id_padre: nodoActual.id,
+        nombre,
+      });
+      setDatosArbol({ ...datosArbol, nodos });
+    }
+  };
+
+  const handleDelete = () => {
+    const nodos = datosArbol.nodos;
+    const indice = nodos.findIndex((nodo) => nodo.id === nodoActual.id);
+    nodos.splice(indice, 1);
+    setDatosArbol({ ...datosArbol, nodos });
+  };
+
+  const handleMove = () => {
+    abrirDialogoNodo(handleMove2);
+  };
+
+  const handleMove2 = (id) => {
+    const nodos = datosArbol.nodos;
+    const nodo = nodos.find((nodo) => nodo.id === nodoActual.id);
+    nodo.id_padre = id;
+    console.log("NODO", nodo);
+    setDatosArbol({ ...datosArbol, nodos });
   };
 
   return (
@@ -92,29 +135,28 @@ export default function FullWidthTabs(props) {
             direction="row"
             justifyContent="space-between"
             alignContent="center"
+            spacing={1}
           >
-            <Typography variant="h6">Datos {datosArbol.actual}</Typography>
-            <Button
-              variant="contained"
-              onClick={() => {
-                const nodos = datosArbol.nodos;
-                const ids = nodos.map((nodo) => nodo.id);
-                const maxId = Math.max(...ids) + 1;
-
-                if (nodoActual) {
-                  nodos.push({
-                    id: maxId,
-                    id_padre: nodoActual.id,
-                    nombre: "Nuevo",
-                  });
-                  setDatosArbol({ ...datosArbol, nodos });
-                }
-
-                console.log(maxId);
-              }}
-            >
+            <Typography variant="h6" sx={{ flex: 1 }}>
+              ID Nodo {datosArbol.actual}
+            </Typography>
+            <Button variant="contained" onClick={handleAdd}>
               Agregar un Hijo
             </Button>
+            {/* <Button variant="contained" onClick={handleMove}>
+              Mover
+            </Button> */}
+            <Button variant="contained" onClick={handleDelete}>
+              Borrar
+            </Button>
+          </Stack>
+          <Stack sx={{ p: "10px" }} spacing={1}>
+            <Typography variant="b1" sx={{ flex: 1 }}>
+              Nombre: {nodoActual?.text}
+            </Typography>
+            <Typography variant="b1" sx={{ flex: 1 }}>
+              Tipo: Genérico
+            </Typography>
           </Stack>
         </TabPanel>
         <TabPanel value={value} index={1} dir={theme.direction}>
@@ -127,6 +169,8 @@ export default function FullWidthTabs(props) {
           Usuarios
         </TabPanel>
       </SwipeableViews>
+      <DialogoNombre />
+      <DialogoNodo />
     </Box>
   );
 }

@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "parent": 0,
+    "droppable": true,
+    "text": "Zurich"
+  },
+  {
+    "id": 2,
+    "parent": 1,
+    "text": "Finanzas",
+    "data": {
+      "fileType": "text",
+      "fileSize": "4.8MB"
+    }
+  },
+  {
+    "id": 3,
+    "parent": 1,
+    "text": "Marketing",
+    "data": {
+      "fileType": "text",
+      "fileSize": "4.8MB"
+    }
+  },
+  {
+    "id": 4,
+    "parent": 0,
+    "droppable": true,
+    "text": "BBVA"
+  },
+  {
+    "id": 5,
+    "parent": 4,
+    "text": "Phone",
+    "data": {
+      "fileType": "image",
+      "fileSize": "2.1MB"
+    }
+  },
+  {
+    "id": 6,
+    "parent": 4,
+    "text": "Autos",
+    "data": {
+      "fileType": "image",
+      "fileSize": "0.8MB"
+    }
+  },
+  {
+    "id": 7,
+    "parent": 0,
+    "droppable": true,
+    "text": "Brokers"
+  },
+
+  {
+    "id": 8,
+    "parent": 7,
+    "text": "Joe's Seguros",
+    "data": {
+      "fileType": "image",
+      "fileSize": "2.1MB"
+    }
+  },
+  {
+    "id": 9,
+    "parent": 7,
+    "text": "Seguros El Enyesado",
+    "data": {
+      "fileType": "image",
+      "fileSize": "0.8MB"
+    }
+  }
+]
