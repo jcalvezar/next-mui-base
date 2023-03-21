@@ -16,7 +16,7 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import { display } from "@mui/system";
 import useNodeNameDialog from "./NodeNameDialog";
-import useNodeNodoDialog from "./NodeNodoDialog";
+//import useNodeNodoDialog from "./NodeNodoDialog";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -59,7 +59,7 @@ export default function FullWidthTabs(props) {
   const { datosArbol, setDatosArbol } = props;
 
   const [abrirDialogoNombre, DialogoNombre] = useNodeNameDialog();
-  const [abrirDialogoNodo, DialogoNodo] = useNodeNodoDialog();
+  //const [abrirDialogoNodo, DialogoNodo] = useNodeNodoDialog();
 
   const nodoActual = datosArbol.nodos.find(
     (nodo) => nodo.id == datosArbol.actual
@@ -104,7 +104,7 @@ export default function FullWidthTabs(props) {
   };
 
   const handleMove = () => {
-    abrirDialogoNodo(handleMove2);
+    //abrirDialogoNodo(handleMove2);
   };
 
   const handleMove2 = (id) => {
@@ -222,7 +222,7 @@ export default function FullWidthTabs(props) {
         </TabPanel>
       </SwipeableViews>
       <DialogoNombre />
-      <DialogoNodo />
+      {/* <DialogoNodo /> */}
     </Box>
   );
 }

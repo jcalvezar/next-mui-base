@@ -38,7 +38,7 @@ export default function Footer(props) {
     <AppBar position="fixed" component="footer" open={open}>
       <Toolbar>
         <Typography variant="h6" noWrap component="div">
-          Zurich Mega Admin
+          Next MUI Base
         </Typography>
       </Toolbar>
     </AppBar>

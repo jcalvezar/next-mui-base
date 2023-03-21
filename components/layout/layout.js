@@ -34,28 +34,27 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
 
 const myMenu = [
   {
-    section: "Phone",
+    section: "Section 1",
     items: [
-      { icon: <InboxIcon />, text: "Dashboard", link: "/" },
-      { icon: <InboxIcon />, text: "Pólizas", link: "/" },
-      { icon: <InboxIcon />, text: "Siniestros", link: "/" },
-      { icon: <InboxIcon />, text: "Prospectos", link: "/" },
-      { icon: <InboxIcon />, text: "Productos", link: "/" },
+      { icon: <InboxIcon />, text: "Option 1", link: "/" },
+      { icon: <InboxIcon />, text: "Option 2", link: "/" },
+      { icon: <InboxIcon />, text: "Option 3", link: "/" },
+      { icon: <InboxIcon />, text: "Option 4", link: "/" },
     ],
   },
   {
-    section: "Autos",
+    section: "Section 2",
     items: [
-      { icon: <MailIcon />, text: "Dashboard", link: "/" },
-      { icon: <MailIcon />, text: "Pólizas", link: "/" },
-      { icon: <MailIcon />, text: "Siniestros", link: "/" },
+      { icon: <MailIcon />, text: "Option 1", link: "/" },
+      { icon: <MailIcon />, text: "Option 2", link: "/" },
+      { icon: <MailIcon />, text: "Option 3", link: "/" },
     ],
   },
   {
     section: "Admin",
     items: [
       { icon: <InboxIcon />, text: "Mega Admin", link: "/admin/mega" },
-      { icon: <InboxIcon />, text: "Reportes", link: "/" },
+      { icon: <InboxIcon />, text: "Reports", link: "/" },
     ],
   },
 ];

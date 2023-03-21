@@ -49,7 +49,7 @@ export default function Header(props) {
           </IconButton>
         )}
         <Typography variant="h6" noWrap component="div" sx={{ flex: 1 }}>
-          Zurich Mega Admin
+          Next MUI Base
         </Typography>
         {!myUser.user && <Login myUser={myUser} />}
         {myUser.user && <UserMenu myUser={myUser} myMenu={myMenu} />}
