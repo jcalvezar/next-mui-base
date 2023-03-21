@@ -28,19 +28,6 @@ import MyTree2 from "../../components/admin/MyTree/MyTree2";
 import Datos from "../../components/admin/Datos";
 import SampleData from "../../components/admin/MyTree/sample_data.json";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center">
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
-
 const theme = createTheme();
 
 export default function Album() {
@@ -50,65 +37,29 @@ export default function Album() {
   });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <PeopleIcon sx={{ mr: 2 }} />
-          <Typography variant="h6" color="inherit" noWrap mr={10}>
-            Zurich Mega Admin
-          </Typography>
-          <MenuPhone />
-          <MenuAutos />
-          <MenuUser />
-        </Toolbar>
-      </AppBar>
-      <main>
-        {/* Hero unit */}
-        <Box
-          sx={{
-            bgcolor: "#eee",
-            pt: 2,
-            pb: 6,
-          }}
+    <Box
+      sx={{
+        bgcolor: "#eee",
+        pt: 2,
+        pb: 6,
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack
+          sx={{ pt: 4 }}
+          direction="row"
+          spacing={2}
+          //justifyContent="center"
         >
-          <Container maxWidth="lg">
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              //justifyContent="center"
-            >
-              <Paper elevation={2} sx={{ flex: 2 }}>
-                {/* <MyTree datosArbol={datosArbol} setDatosArbol={setDatosArbol} /> */}
-                <MyTree2
-                  datosArbol={datosArbol}
-                  setDatosArbol={setDatosArbol}
-                />
-              </Paper>
-              <Paper elevation={2} sx={{ flex: 4 }}>
-                <Datos datosArbol={datosArbol} setDatosArbol={setDatosArbol} />
-              </Paper>
-            </Stack>
-          </Container>
-        </Box>
-      </main>
-      {/* Footer */}
-      <Box sx={{ bgcolor: "background.paper", p: 6 }} component="footer">
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          align="center"
-          color="text.secondary"
-          component="p"
-        >
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </Box>
-      {/* End footer */}
-    </ThemeProvider>
+          <Paper elevation={2} sx={{ flex: 2 }}>
+            {/* <MyTree datosArbol={datosArbol} setDatosArbol={setDatosArbol} /> */}
+            <MyTree2 datosArbol={datosArbol} setDatosArbol={setDatosArbol} />
+          </Paper>
+          <Paper elevation={2} sx={{ flex: 4 }}>
+            <Datos datosArbol={datosArbol} setDatosArbol={setDatosArbol} />
+          </Paper>
+        </Stack>
+      </Container>
+    </Box>
   );
 }
